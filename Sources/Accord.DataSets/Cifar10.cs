@@ -26,13 +26,12 @@ namespace Accord.DataSets
     using Accord.Math;
     using System;
     using Accord.Compat;
-    using System.Drawing;
     using System.IO;
     using ICSharpCode.SharpZipLib.Tar;
     using System.Collections.Generic;
 
     /// <summary>
-    ///   Cifar10 dataset of 32x32 images.
+    ///   Cifar-10 dataset of 32x32 images.
     /// </summary>
     /// 
     /// <remarks>
@@ -52,16 +51,25 @@ namespace Accord.DataSets
     public class Cifar10 : WebDataSet
     {
         /// <summary>
-        /// Gets the training set of the Cifar10 dataset.
+        /// Gets the training set of the Cifar-10 dataset.
         /// </summary>
         /// 
         public Tuple<byte[][], int[]> Training { get; private set; }
 
         /// <summary>
-        /// Gets the testing set of the Cifar10 dataset.
+        /// Gets the testing set of the Cifar-10 dataset.
         /// </summary>
         /// 
         public Tuple<byte[][], int[]> Testing { get; private set; }
+
+        /// <summary>
+        /// Gets or sets the class names in the Cifar-10 dataset.
+        /// </summary>
+        /// 
+        public string[] ClassNames
+        {
+            get { return new[] { "airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse" }; }
+        }
 
         /// <summary>
         ///   Downloads and prepares the MNIST dataset.
